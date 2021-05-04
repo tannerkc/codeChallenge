@@ -17,6 +17,10 @@ function CodeArea() {
           });
     }, [])
 
+    document.body.oncopy = function() { return false; }
+    document.body.oncut = function() { return false; }
+    document.body.onpaste = function() { return false; }
+
 
     function runTests() {
         document.getElementById("results").innerHTML = "Running...";
@@ -35,9 +39,7 @@ function CodeArea() {
 
     return (
         <div className="codeArea">
-            <textarea rows="20" className="input" id="code" defaultValue="def solution(arr):" spellcheck="false" >
-                
-            </textarea>
+            <textarea rows="20" className="input" id="code" defaultValue="def solution(arr):" spellcheck="false"  ></textarea>
  
             <div onClick={runTests} class="key long" type="button">
             <div>
